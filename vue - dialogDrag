@@ -1,5 +1,3 @@
-客园首页新随笔联系管理订阅 
-随笔- 27  文章- 0  评论- 1 
 vue v-dialogDrag: 弹窗拖拽
 Vue.directive('dialogDrag', {
 inserted:function(el) {
