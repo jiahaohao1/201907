@@ -1,0 +1,40 @@
+客园首页新随笔联系管理订阅 
+随笔- 27  文章- 0  评论- 1 
+vue v-dialogDrag: 弹窗拖拽
+Vue.directive('dialogDrag', {
+inserted:function(el) {
+
+const dragDom = el.querySelector('.jsPropupLayerHead');
+dragDom.style.cursor = 'move';
+
+dragDom.onmousedown = (e) => {
+event.stopPropagation();
+// 鼠标按下，计算当前元素距离可视区的距离
+const disX = e.clientX - el.offsetLeft;
+const disY = e.clientY - el.offsetTop;
+
+console.log('disX='+disX)
+console.log('disY='+disY)
+
+
+document.onmousemove = (e)=>{
+//用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
+let left = e.clientX - disX;
+let top = e.clientY - disY;
+//移动当前元素
+el.style.left = left + 'px';
+
+el.style.top = top + 'px';
+
+
+
+
+};
+document.onmouseup = (e) => {
+document.onmousemove = null;
+document.onmouseup = null;
+};
+
+}
+}
+})
